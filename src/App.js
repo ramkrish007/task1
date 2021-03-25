@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import './App.css';
 //import {nameToArray} from './logic'
+import Button from "@material-ui/core/Button"
 
 function App  () {
 
@@ -40,8 +41,9 @@ function App  () {
        flames = flames.splice(totalNameLength%6,1);
       }
       console.log(flames)
+      setResult(flames)
     }
-    setResult(flames)
+    
     //console.log(difference)
 
   }
@@ -53,17 +55,23 @@ function App  () {
 
 
   return (
-    <div className="App">
-      <h1>FLAMES</h1>
+    <div className="App" style={{backgroundColor: 'blue', height: '100vh', paddingTop: '100px'}}>
+      <h1 style={{fontStyle: 'italic', paddingBottom: '5px'}}>FLAMES</h1>
       <form onSubmit={handleSubmit}>
         <label>
           <input type="text" name="name" placeholder="nameone" onChange={e => setPersonone(e.target.value)} />
         </label>
+        <br></br>
         <label>
           <input type="text" name="name_two" placeholder="nametwo" onChange={e => setPersontwo(e.target.value)} />
         </label>
         <div>
-          <button type="submit">Submit</button>
+          <Button variant="contained" 
+          style={{
+            fontSize: 16
+          }}
+          color="primary" 
+          type="submit">Submit</Button>
         </div>
         </form>
         <br></br>
